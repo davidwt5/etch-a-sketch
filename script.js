@@ -1,17 +1,17 @@
-const mainContainer = document.getElementById('main-container');
+const grid = document.getElementById('grid');
 const GRID_SIZE = 16;
 
-// Adding 16^2 grids into the main container
+// Adding 16^2 cells into the grid container
 for(let i=0; i<Math.pow(GRID_SIZE,2); i++) {
-    const grid = document.createElement("div");
-    grid.classList.add('grid');
-    mainContainer.appendChild(grid);
+    const cell = document.createElement("div");
+    cell.classList.add('cell');
+    grid.appendChild(cell);
 }
 
 // Change colour to black on hover
-const grids = document.querySelectorAll('.grid');
-grids.forEach(grid => {
-    grid.addEventListener('mouseenter', e => {
-        grid.style.cssText = 'background-color: black;';
+const cells = document.querySelectorAll('.cell');
+cells.forEach(cell => {
+    cell.addEventListener('mouseenter', e => {
+        cell.style.cssText = 'background-color: black;';
     });
 });

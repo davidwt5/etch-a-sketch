@@ -1,4 +1,4 @@
-#main-container {
+#grid {
     display: flex;
     flex-flow: row wrap;
     width: 500px;
@@ -6,7 +6,7 @@
 }
 
 /* ideal size of each grid is 6.25% == 1/16 */
-.grid {
+.cell {
     background-color: lightgrey;
     margin: 0;
     flex: 0 1 6.25%;
