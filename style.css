@@ -5,6 +5,7 @@
     height: 500px;
 }
 
+/* ideal size of each grid is 6.25% == 1/16 */
 .grid {
     background-color: lightgrey;
     margin: 0;
