@@ -7,3 +7,11 @@ for(let i=0; i<Math.pow(GRID_SIZE,2); i++) {
     grid.classList.add('grid');
     mainContainer.appendChild(grid);
 }
+
+// Change colour to black on hover
+const grids = document.querySelectorAll('.grid');
+grids.forEach(grid => {
+    grid.addEventListener('mouseenter', e => {
+        grid.style.cssText = 'background-color: black;';
+    });
+});
