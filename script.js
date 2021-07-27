@@ -4,14 +4,6 @@ const INITIAL_GRID_SIZE = 16;
 // Adding 16^2 cells into the grid container
 generateGrid(INITIAL_GRID_SIZE);
 
-// Change colour to black on hover
-const cells = document.querySelectorAll('.cell');
-cells.forEach(cell => {
-    cell.addEventListener('mouseenter', e => {
-        setBackgroundColour(cell, 'black');
-    });
-});
-
 // resetBtn resets the colour of all cells
 const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', e => {
@@ -20,19 +12,14 @@ resetBtn.addEventListener('click', e => {
     });
 });
 
-function generateGrid(size) {
+// Change the grid size depending on value 
+const gridSize = document.getElementById('grid-size');
+gridSize.addEventListener('change', e => {
     const grid = document.getElementById('grid');
-    for(let i=0; i<Math.pow(size,2); i++) {
-        const cell = document.createElement("div");
-        cell.classList.add('cell');
-        grid.appendChild(cell);
-    }
-}
-
-function deleteAllChildren(node){
-    node.innerHTML = '';
-}
-
-function setBackgroundColour(node, colour){
-    node.style.cssText = `background-color: ${colour};`
-}
+    deleteAllChildren(grid);
+    generateGrid(gridSize.value);
+    // (1 / gridSize) * 100 == size of 1 cell in percentage.
+    // I.e. In a 16x16, one cell is 6.25% in width and height
+    const cellSize = (1/gridSize.value)*100 + '%';
+    document.documentElement.style.setProperty('--cell-size', `${cellSize}`);
+});
