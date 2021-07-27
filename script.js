@@ -13,8 +13,8 @@ resetBtn.addEventListener('click', e => {
 });
 
 // Change the grid size depending on value 
-const gridSize = document.getElementById('grid-size');
-gridSize.addEventListener('change', e => {
+const gridSize = document.getElementById('grid-size-input');
+gridSize.addEventListener('input', e => {
     const grid = document.getElementById('grid');
     deleteAllChildren(grid);
     generateGrid(gridSize.value);
@@ -22,4 +22,8 @@ gridSize.addEventListener('change', e => {
     // I.e. In a 16x16, one cell is 6.25% in width and height
     const cellSize = (1/gridSize.value)*100 + '%';
     document.documentElement.style.setProperty('--cell-size', `${cellSize}`);
+
+    // Displays the current grid size to the user
+    const output = document.getElementById('grid-size-output');
+    output.innerText = `${gridSize.value}x${gridSize.value}`;
 });
