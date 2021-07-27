@@ -1,13 +1,3 @@
-// Attaches an event listener to every cell to change colour on hover
-function attachHoverColourEventListener(colour){
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => {
-        cell.addEventListener('mouseenter', e => {
-            setBackgroundColour(cell, colour);
-        });
-    });
-}
-
 // Generates a grid of a given size
 function generateGrid(size) {
     const grid = document.getElementById('grid');
@@ -15,8 +5,15 @@ function generateGrid(size) {
         const cell = document.createElement("div");
         cell.classList.add('cell');
         grid.appendChild(cell);
-        attachHoverColourEventListener('black');
+        attachHoverColourEventListener(cell, 'black');
     }
+}
+
+// Attaches an event listener to every cell to change colour on hover
+function attachHoverColourEventListener(cell, colour){
+    cell.addEventListener('mouseenter', e => {
+        setBackgroundColour(cell, colour);
+    });
 }
 
 function deleteAllChildren(node){
