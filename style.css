@@ -6,12 +6,13 @@
 #grid {
     display: flex;
     flex-flow: row wrap;
+    border: 0.5px solid black;
     width: 500px;
     height: 500px;
 }
 
 .cell {
-    background-color: lightgrey;
+    background-color: white;
     margin: 0;
     flex: 0 1 var(--cell-size);
 }
